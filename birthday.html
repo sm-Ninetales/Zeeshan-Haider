@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Zeeshan!</title>
+    <style>
+        /* Import a clean, modern font */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            /* Fresh and modern gradient background */
+            background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            position: relative;
+        }
+
+        /* Abstract background glow for modern look */
+        .glow {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: 0;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .glow:nth-child(2) {
+            top: 10%;
+            right: 10%;
+            background: rgba(255, 223, 0, 0.2);
+            animation-delay: 2s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-20px) scale(1.1); }
+        }
+
+        /* Screen containers */
+        .screen {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 10;
+        }
+
+        /* Intro Screen with Button */
+        #intro {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        #intro.fade-out {
+            opacity: 0;
+            transform: scale(1.2);
+            pointer-events: none;
+        }
+
+        /* Modern styled button */
+        button#openBtn {
+            padding: 16px 45px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+            color: #00f2fe;
+            background: #ffffff;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 10;
+            animation: pulse 2s infinite;
+        }
+
+        button#openBtn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.6); }
+            70% { box-shadow: 0 0 0 20px rgba(255, 255, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+        }
+
+        /* Main Content Screen (Hidden Initially) */
+        #main {
+            opacity: 0;
+            transform: scale(0.8) translateY(20px);
+            pointer-events: none;
+            z-index: 20;
+        }
+
+        #main.show {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+            pointer-events: auto;
+        }
+
+        /* Glassmorphism Card */
+        .card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 40px;
+            border-radius: 25px;
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+        }
+
+        .to-text {
+            font-size: 1.6rem;
+            margin-bottom: 25px;
+            font-weight: 700;
+            color: #ffe600; /* Fresh Gold */
+            text-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            letter-spacing: 1px;
+        }
+
+        .message {
+            font-size: 1.25rem;
+            line-height: 1.7;
+            margin-bottom: 30px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+
+        .from-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            font-weight: 600;
+            opacity: 0.9;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            padding-top: 20px;
+            margin-top: 10px;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 600px) {
+            .card { padding: 30px 20px; }
+            .to-text { font-size: 1.3rem; }
+            .message { font-size: 1.1rem; line-height: 1.6; }
+            .from-text { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Background glowing orbs -->
+    <div class="glow"></div>
+    <div class="glow"></div>
+
+    <!-- Intro screen with button -->
+    <div id="intro" class="screen">
+        <button id="openBtn">Click me</button>
+    </div>
+
+    <!-- Main birthday message screen -->
+    <div id="main" class="screen">
+        <div class="card">
+            <div class="to-text">To : Zeeshan Haider</div>
+            <div class="message">
+                Happy Birthday to my dearest cousin! May Allah bless you with happiness, good health, success, and endless barakah. May He protect you, fulfill your dreams, and grant you Jannah. Ameen. 🎉🤲
+            </div>
+            <div class="from-text">Made by Raayyan and Motasim.....</div>
+        </div>
+    </div>
+
+    <script>
+        // Smooth transition logic
+        const openBtn = document.getElementById('openBtn');
+        const introScreen = document.getElementById('intro');
+        const mainScreen = document.getElementById('main');
+
+        openBtn.addEventListener('click', () => {
+            // Hide the button smoothly
+            introScreen.classList.add('fade-out');
+            
+            // Show the card and start confetti after a slight delay
+            setTimeout(() => {
+                mainScreen.classList.add('show');
+                startConfetti();
+            }, 600); // 600ms matches the CSS transition to feel seamless
+        });
+
+        // Hardware-accelerated smooth confetti generator
+        function startConfetti() {
+            const colors = ['#ffffff', '#ffe600', '#ff7eb3', '#00f2fe', '#4facfe'];
+            
+            // Burst 80 particles instantly
+            for (let i = 0; i < 80; i++) {
+                createParticle(colors);
+            }
+
+            // Continue dropping particles slowly to keep it alive
+            setInterval(() => {
+                createParticle(colors);
+                createParticle(colors);
+            }, 300);
+        }
+
+        function createParticle(colors) {
+            const particle = document.createElement('div');
+            
+            // Random properties
+            const size = Math.random() * 8 + 6 + 'px';
+            const color = colors[Math.floor(Math.random() * colors.length)];
+            const left = Math.random() * 100 + 'vw';
+            const duration = Math.random() * 3 + 2; // 2 to 5 seconds
+            
+            // Apply styles
+            Object.assign(particle.style, {
+                position: 'absolute',
+                top: '-20px',
+                left: left,
+                width: size,
+                height: size,
+                backgroundColor: color,
+                borderRadius: Math.random() > 0.5 ? '50%' : '2px', // Mix of circles and squares
+                opacity: Math.random() * 0.8 + 0.2,
+                pointerEvents: 'none',
+                zIndex: 30
+            });
+
+            document.body.appendChild(particle);
+
+            // Animate using Web Animations API (GPU Accelerated for zero lag)
+            const animation = particle.animate([
+                { transform: 'translate3d(0, 0, 0) rotate(0deg)' },
+                { transform: `translate3d(${Math.random() * 100 - 50}px, 110vh, 0) rotate(${Math.random() * 720}deg)` }
+            ], {
+                duration: duration * 1000,
+                easing: 'linear',
+                fill: 'forwards'
+            });
+
+            // Clean up DOM to prevent lag
+            animation.onfinish = () => particle.remove();
+        }
+    </script>
+</body>
+</html>
